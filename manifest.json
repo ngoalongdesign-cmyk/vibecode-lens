@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "VibeCode Lens",
   "version": "0.3.0",
-  "description": "Chỉ vào UI, chọn ý định sửa, copy câu nói với AI.",
+  "description": "Hover over any UI element — Lens names it, suggests what to fix, and generates a prompt for Claude, Cursor, or any AI.",
   "permissions": [
     "activeTab",
     "storage",
@@ -12,9 +12,19 @@
   "host_permissions": [
     "<all_urls>"
   ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
   "action": {
     "default_title": "VibeCode Lens",
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
   },
   "background": {
     "service_worker": "background.js"

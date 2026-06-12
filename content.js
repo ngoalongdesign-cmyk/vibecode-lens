@@ -257,7 +257,7 @@
     if (!typing && (event.key === 'c' || event.key === 'C') && STATE.lastInfo && STATE.currentPrompt) {
       event.preventDefault();
       copyText(STATE.currentPrompt);
-      flashCopyButton('Đã copy');
+      flashCopyButton(T[STATE.lang].copiedBtn);
     }
   }
 
@@ -444,7 +444,7 @@
     const rect = el.getBoundingClientRect();
     const rawClasses = (el.getAttribute('class') || '').toString().trim().split(/\s+/).filter(Boolean).slice(0, 3);
     const textInfo = getElementText(el);
-    const context = getContext(el, key);
+    const context = getContext(el, key, isEn);
     const displayTitle = isEn ? buildDisplayTitleEn(key, textInfo) : buildDisplayTitle(key, textInfo);
     const promptBase = isEn ? buildTargetPhraseEn(key, textInfo, context) : buildTargetPhrase(key, textInfo, context);
     const editSet = getReasonSet(key, STATE.reasonPage);
@@ -455,7 +455,7 @@
       `tag: ${el.tagName.toLowerCase()}`,
       el.getAttribute('role') ? `role: ${el.getAttribute('role')}` : '',
       textInfo.source ? `text: ${textInfo.source}` : '',
-      context.short ? `vị trí: ${context.short}` : '',
+      context.short ? `${isEn ? 'location' : 'vị trí'}: ${context.short}` : '',
       `display: ${css.display}`,
       `position: ${css.position}`,
       `size: ${Math.round(rect.width)}×${Math.round(rect.height)}px`,
@@ -718,10 +718,10 @@
     };
   }
 
-  function getContext(el, key = '') {
+  function getContext(el, key = '', isEn = false) {
     const rect = el.getBoundingClientRect();
     if (key === 'chatComposer' || isChatComposerLike(el)) {
-      return { inSidebar: false, inNavbar: false, inChatComposer: true, nearBottom: true, nearTop: false, short: 'ở dưới cùng màn hình' };
+      return { inSidebar: false, inNavbar: false, inChatComposer: true, nearBottom: true, nearTop: false, short: isEn ? 'at the bottom of the screen' : 'ở dưới cùng màn hình' };
     }
     const sidebar = findSidebarAncestor(el);
     const navbar = el.closest('nav, header, [role="navigation"], [class*="navbar"], [class*="topbar"], [class*="header"], [class*="appbar"]');
@@ -731,19 +731,19 @@
 
     if (sidebar) {
       const sr = sidebar.getBoundingClientRect();
-      const side = sr.left < window.innerWidth * 0.33 ? 'bên trái' : sr.right > window.innerWidth * 0.66 ? 'bên phải' : '';
+      const side = isEn ? (sr.left < window.innerWidth * 0.33 ? 'left' : sr.right > window.innerWidth * 0.66 ? 'right' : '') : (sr.left < window.innerWidth * 0.33 ? 'bên trái' : sr.right > window.innerWidth * 0.66 ? 'bên phải' : '');
       const atBottom = rect.top > sr.top + sr.height * 0.65;
-      short = atBottom ? `ở cuối sidebar ${side}`.trim() : `trong sidebar ${side}`.trim();
+      short = isEn ? (atBottom ? `at the bottom of the ${side} sidebar`.trim() : `in the ${side} sidebar`.trim()) : (atBottom ? `ở cuối sidebar ${side}`.trim() : `trong sidebar ${side}`.trim());
       return { inSidebar: true, inNavbar: false, nearBottom: atBottom || nearBottom, nearTop, short };
     }
 
     if (navbar && nearTop) {
-      short = 'trong thanh trên cùng';
+      short = isEn ? 'in the top bar' : 'trong thanh trên cùng';
       return { inSidebar: false, inNavbar: true, nearBottom, nearTop, short };
     }
 
-    if (nearTop) short = 'ở gần đầu trang';
-    else if (nearBottom) short = 'ở gần cuối màn hình';
+    if (nearTop) short = isEn ? 'near the top of the page' : 'ở gần đầu trang';
+    else if (nearBottom) short = isEn ? 'near the bottom of the screen' : 'ở gần cuối màn hình';
     return { inSidebar: false, inNavbar: false, nearBottom, nearTop, short };
   }
 

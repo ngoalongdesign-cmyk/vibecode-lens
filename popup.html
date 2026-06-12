@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VibeCode Lens</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <main class="popup">
+    <div class="brand">
+      <div class="mark">&lt;M&gt;</div>
+      <div>
+        <h1>VibeCode Lens</h1>
+        <p>Chỉ vào UI, chọn ý định sửa, copy câu nói với AI.</p>
+      </div>
+    </div>
+
+    <label class="toggle-row">
+      <span>Lens Mode</span>
+      <input id="lensToggle" type="checkbox" />
+    </label>
+
+    <section class="hint">
+      <strong>Cách dùng</strong>
+      <p>Bật Lens Mode, quay lại website, di chuột vào một vùng giao diện. Click để khóa vùng, chọn Sửa nhanh rồi copy câu cho AI. Nhấn <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>L</kbd> để bật/tắt nhanh. Nhấn <kbd>Esc</kbd> để tắt khi đang dùng.</p>
+    </section>
+
+    <section class="hint compact">
+      <strong>Đổi phím tắt</strong>
+      <p>Vào <code>chrome://extensions/shortcuts</code> → VibeCode Lens → đặt phím theo thói quen của bạn.</p>
+    </section>
+
+    <button id="copyGuide" class="secondary">Copy câu hướng dẫn cho AI</button>
+    <p id="status" class="status"></p>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

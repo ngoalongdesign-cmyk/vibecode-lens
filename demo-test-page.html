@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VibeCode Lens QA Test Page</title>
+  <style>
+    body{margin:0;font-family:Inter,system-ui,sans-serif;background:#efe9dc;color:#1a1612}header{height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 32px;border-bottom:1px solid rgba(0,0,0,.12);position:sticky;top:0;background:#efe9dc}.brand{font-weight:800;letter-spacing:.08em}.nav a{margin-left:22px;color:#1a1612;text-decoration:none}main{display:grid;grid-template-columns:240px 1fr;min-height:calc(100vh - 64px)}aside{border-right:1px solid rgba(0,0,0,.12);padding:20px}.search{width:100%;padding:12px;border:1px solid rgba(0,0,0,.16);border-radius:12px;background:white}.menu button{display:block;width:100%;text-align:left;margin:8px 0;padding:10px;border:0;border-radius:10px;background:transparent}.menu button.active{background:rgba(182,68,42,.12)}.account{margin-top:180px;display:flex;gap:10px;align-items:center;padding:12px;border:1px solid rgba(0,0,0,.13);border-radius:14px;background:rgba(255,255,255,.35)}.avatar{width:32px;height:32px;border-radius:50%;background:#b6442a;color:white;display:grid;place-items:center}.content{padding:48px}.hero{max-width:720px}.hero h1{font-size:56px;line-height:1;margin:0 0 18px}.hero p{font-size:19px;line-height:1.65}.cta{background:#1a1612;color:white;border:0;border-radius:999px;padding:14px 22px;font-weight:800}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:36px}.card{background:rgba(255,255,255,.45);border:1px solid rgba(0,0,0,.12);border-radius:18px;padding:22px}.pricing{margin-top:38px;border:1px solid rgba(0,0,0,.14);border-radius:22px;padding:24px;background:rgba(255,255,255,.32)}.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.plan{padding:18px;border-radius:16px;border:1px solid rgba(0,0,0,.14);background:white}.modal{margin-top:28px;padding:18px;border-radius:18px;background:#1a1612;color:#efe9dc;max-width:420px}.composer{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);width:min(720px,calc(100vw - 36px));display:flex;gap:10px;align-items:center;background:white;border:1px solid rgba(0,0,0,.15);border-radius:22px;padding:10px}.composer textarea{flex:1;border:0;outline:0;resize:none;font:inherit}.composer button{border:0;border-radius:50%;width:38px;height:38px;background:#1a1612;color:white}</style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="#" aria-label="Trang chủ">MARA labs</a>
+    <nav class="nav" aria-label="Main navigation"><a href="#">Về mình</a><a href="#">Sản phẩm</a><a href="#">Tài liệu</a><a href="#">Liên hệ</a></nav>
+  </header>
+  <main>
+    <aside>
+      <input class="search" type="search" placeholder="Tìm kiếm tài liệu" />
+      <div class="menu" role="navigation">
+        <button class="active">Dashboard</button><button>Projects</button><button>VibeCode Lens</button><button>Settings</button>
+      </div>
+      <button class="account" aria-label="Mở menu hồ sơ"><span class="avatar">NL</span><span><b>Ngọa Long</b><br><small>Plus</small></span></button>
+    </aside>
+    <section class="content">
+      <div class="hero"><h1>Từ mơ hồ đến một hướng build rõ ràng.</h1><p>VibeCode đọc tín hiệu từ cộng đồng, ghép với lợi thế của bạn và tạo bản đồ build đủ rõ để đưa cho AI bắt đầu.</p><button class="cta">Nhận bản đầy đủ</button></div>
+      <div class="grid"><article class="card"><h3>Signal Radar</h3><p>Tìm pain thật từ cộng đồng.</p></article><article class="card"><h3>Founder Fit</h3><p>Ghép ý tưởng với lợi thế của bạn.</p></article><article class="card"><h3>Builder Handoff</h3><p>Copy sang AI để build.</p></article></div>
+      <section class="pricing"><h2>Bảng giá</h2><div class="plans"><div class="plan"><b>Free</b><p>0đ</p><button>Dùng thử</button></div><div class="plan"><b>Builder</b><p>99k</p><button>Mua ngay</button></div><div class="plan"><b>Max</b><p>299k</p><button>Nâng cấp</button></div></div></section>
+      <div class="modal" role="dialog"><b>Popup xác nhận</b><p>Bạn muốn lưu thay đổi này?</p><button>Đồng ý</button></div>
+    </section>
+  </main>
+  <form class="composer"><button type="button" aria-label="Thêm tệp">+</button><textarea placeholder="Hỏi bất kỳ điều gì"></textarea><button type="submit" aria-label="Gửi tin nhắn">↑</button></form>
+</body>
+</html>
